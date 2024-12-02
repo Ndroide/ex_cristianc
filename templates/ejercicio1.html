@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1</title>
+    <title>Ejercicio 1 | Cristian Céspedes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Ejercicio 1</h1>
-    <p>Esta es la página para el ejercicio 1.</p>
-    <a href="/">Regresar a la página principal</a>
+    <header>
+        <h1>Examen RAP <small>Cristian Céspedes</small></h1>
+        <div class="logo">
+            <img src="../static/img/CustomNavigationLogo.png" alt="iplacex" width="121">
+        </div>
+    </header>
+    <section class="breadcrumb">
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li class="active"><a href="/ejercicio1">Ejercicio 1</a></li>
+                <li><a href="/ejercicio2">Ejercicio 2</a></li>
+            </ul>
+        </nav>
+    </section>
+    <main class="flex-element">
+        <div class="box-container">
+            <form method="POST" action="/ejercicio1">
+                <div class="header-form">
+                    <h2>Cálculo de compras</h2>
+                </div>
+                <div class="input">
+                    <label for="nombre">Ingresa tu nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="input">
+                    <label for="edad">Ingresa tu Edad</label>
+                    <input type="number" id="edad" name="edad" required>
+                </div>
+                <div class="input">
+                    <label for="tarros">Ingresa la cantidad de tarros de pintura a comprar</label>
+                    <input type="number" id="tarros" name="tarros" required>
+                </div>
+                <div class="footer-form">
+                    <button class="btn_calc" type="submit">Calcular</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="box-container">
+            {% if resultado %}
+            <h3>Resultado</h3>
+            <table class="drop-table">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>{{ resultado.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <td>Total sin descuento</td>
+                        <td>{{ resultado.precio_tarros }}</td>
+                    </tr>
+                    <tr>
+                        <td>Total con descuento</td>
+                        <td>{{ resultado.total_con_descuento }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </main>
 </body>
 </html>

@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2</title>
+    <title>Ejercicio 2 | Cristian Céspedes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Ejercicio 2</h1>
-    <p>Esta es la página para el ejercicio 2.</p>
-    <a href="/">Regresar a la página principal</a>
+    <header>
+        <h1>Examen RAP <small>Cristian Céspedes</small></h1>
+        <div class="logo">
+            <img src="../static/img/CustomNavigationLogo.png" alt="iplacex" width="121">
+        </div>
+    </header>
+    <section class="breadcrumb">
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/ejercicio1">Ejercicio 1</a></li>
+                <li class="active"><a href="/ejercicio2">Ejercicio 2</a></li>
+            </ul>
+        </nav>
+    </section>
+    <main class="flex-element">
+        <div class="box-container">
+            <form method="POST" action="/ejercicio2">
+                <div class="header-form">
+                    <h2>Inicio de sesión</h2>
+                </div>
+                <div class="input">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                </div>
+                <div class="input">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </div>
+                <div class="footer-form">
+                    <button class="btn_calc" type="submit">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="box-container">
+            {% if mensaje %}
+            <h2>{{ mensaje }}</h2>
+            {% endif %}
+        </div>
+    </main>
 </body>
 </html>

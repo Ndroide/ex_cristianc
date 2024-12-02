@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
+    <title>Examen RAP | Cristian Céspedes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Bienvenido a mi proyecto Flask</h1>
-    <nav>
-        <a href="/ejercicio1">Ejercicio 1</a>
-        <a href="/ejercicio2">Ejercicio 2</a>
-    </nav>
+    <header>
+        <h1>Examen RAP <small>Cristian Céspedes</small></h1>
+        <div class="logo">
+            <img src="../static/img/CustomNavigationLogo.png" alt="iplacex" width="121">
+        </div>
+    </header>
+    <main>
+        <div class="center-all">
+            <button class="btn_block" onclick="window.location.href='/ejercicio1';">Ejercicio 1</button>
+            <button class="btn_block" onclick="window.location.href='/ejercicio2';">Ejercicio 2</button>
+        </div>
+    </main>
 </body>
 </html>
